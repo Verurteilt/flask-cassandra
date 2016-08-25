@@ -1,4 +1,3 @@
-
 # -*- coding: utf-8 -*-
 '''
     flask-cassandra
@@ -60,7 +59,7 @@ class CassandraCluster(object):
                 auth_provider = auth_provider(**current_app.config.get('CASSANDRA_AUTH_OPTIONS', {}))
             if isinstance(current_app.config['CASSANDRA_NODES'], (list, tuple)):
                 self.cluster = Cluster(current_app.config['CASSANDRA_NODES'], auth_provider=auth_provider)
-            elif isinstance(current_app.config['CASSANDRA_NODES'], (str, unicode),):
+            elif isinstance(current_app.config['CASSANDRA_NODES'], (str, unicode)):
                 self.cluster = Cluster([current_app.config['CASSANDRA_NODES']], auth_provider=auth_provider)
             else:
                 raise TypeError("CASSANDRA_NODES must be defined as a list, tuple, string, or unicode object.")
